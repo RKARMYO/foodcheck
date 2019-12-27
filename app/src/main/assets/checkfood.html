@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Asone</title>
+	
+
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="css/mdb.min.css">
+	<!-- Our custom styles (optional) -->
+	<link rel="stylesheet" href="css/teamcs.css">
+	
+
+	<link rel="icon" href="images/app_icon.png" type="image/gif" sizes="16x16">
+
+	<style>
+
+		@font-face 
+		{
+		  font-family: 'Pyidaungsu';
+		  src: URL('font/Pyidaungsu.ttf') format('truetype');
+		  /*src: URL('font/Win.ttf') format('truetype');*/
+		}
+		body
+		{
+			font-family: Pyidaungsu;
+		}
+		.my_card{
+			margin-bottom: 20px;
+		}
+		.no_link{
+			text-decoration: none;
+		}
+		#resultfood
+		{
+			color: red;
+		}
+	</style>
+</head>
+
+<body class="fixed-sn white-skin">
+
+	<!-- Main Navigation -->
+	<header>
+		<!-- Sidebar navigation -->
+		<div id="slide-out" class="side-nav sn-bg-4 fixed">
+			<ul class="custom-scrollbar">
+				<!-- Logo -->
+				<li class="logo-sn waves-effect py-3">
+					<div class="text-center">
+						<a href="#" class="pl-0">
+							<img src="images/team-cs-logo.png">
+						</a>
+						<p style="color:black; font-size:12px; padding-top: 50px;">
+							Check food
+						<p>
+					</div>
+				</li>
+				
+			</ul>
+			<div class="sidenav-bg mask-strong"></div>
+		</div>
+		<!-- Sidebar navigation -->
+		<!-- Navbar -->
+		<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav" id="nav_id">
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-dn mr-auto align-center">
+				<p></p>
+			</div>
+			<div class="title_text mr-auto align-center text-center">
+				<h4 id="header_id" style="padding-left: 15px;">     မတည့်သောအစားအစာများ   </h4>
+			</div>
+			<div class="d-flex change-mode">
+				<!-- Navbar links -->
+				<ul class="nav navbar-nav nav-flex-icons ml-auto" style="display: none;">
+					<li class="nav-item dropdown">
+						<a  href="index.html" class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-comments-dollar"></i>  <span class="clearfix d-none d-sm-inline-block"></span>
+						</a>
+
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown"> <a   href="index.html"  class="dropdown-item ui_navigation" href="#login_section" id="logout_btn">မူလစာမျက်နှာ</a>
+						</div>
+					</li>
+				</ul>
+				<!-- Navbar links -->
+			</div>
+		</nav>
+		
+	</header>
+	<!-- Main Navigation -->
+
+	<!-- Main layout -->
+	<main>
+		<div class="container-fluid">
+			<!-- Section: Intro -->
+			<section id="intro_section">
+
+
+				<div class="card">
+					<div class="card-body">	
+						<h5 class="my-4 dark-grey-text font-weight-bold">   အစားအသောက်များ</h5>
+
+						<!-- Material input -->
+						<div class="md-form selectedfood">
+							<select class="mdb-select md-form" searchable="Search here.." id="selectedfood" onchange="calculate()">
+								<option value="" disabled selected>သင်စားမည့် အစားအစာ ရွေးချယ်ပါ</option>
+								<option value="1">ကုန်းကျေး</option>
+								<option value="22222">ကျွဲခေါင်းသီး </option>
+								<option value="3">ကန်စွန်းမြစ်</option>
+								<option value="4">ကြာစွယ်</option>
+								<option value="5">ကောက်ညှင်း </option>
+								<option value="6">ကင်းပုံရွက်/သီး</option>
+								<option value="7">ကျောက်ဖရုံ </option>
+								<option value="8888888">ကြောင်လျှာသီး </option>
+								<option value="9">ကျွဲသား</option>
+								<option value="10">ကြက်သွန်ဖြူ</option>
+								<option value="11">ကြက်သား </option>
+								<option value="12121"> ကြက်ဟင်းခါးသီး</option>
+								<option value="13131">ကြက်ဥ</option>
+								<option value="14">ချင်း</option>
+								<option value="15151"> ချောကလက်</option>
+								<option value="16">ချိုချဉ်</option>
+								<option value="17">ခရု</option>
+								<option value="1818181">ခိုသား</option>
+								<option value="19">ချိုချဉ်သကြားလုံး</option>
+								<option value="20">ဂွေးရွက်</option>
+								<option value="212121">ဂွေးသီး</option>
+								<option value="22">ဂျယ်လီ</option>
+								<option value="23">ငရုပ်ကောင်း</option>
+								<option value="24">ငါးချက်သောအိုး</option>
+								<option value="25252">ငှက်ပျောသီး</option>
+								<option value="26">ငါးရံသား</option>
+								<option value="27272">ငုံးသား</option>
+								<option value="28">ငှက်သား</option>
+								<option value="29">စတော်ဘယ်ရီ /စားတော်ပဲ</option>
+								<option value="30303">စိမ်းစားဥ</option>
+								<option value="31313">စောင်းလျားသီး</option>
+								<option value="32">ဆေးခြောက်</option>
+								<option value="33">ဆိတ်သား</option>
+								<option value="34343">ဆတ်သား</option>
+								<option value="35">ဆိတ်နို့ဆိတ်သား</option>
+								<option value="36">ဉာဏ်ရွက်</option>
+								<option value="37373">တလည်းသီး</option>
+								<option value="38">ထနောင်းရွက်</option>
+								<option value="39">ထုံး</option>
+								<option value="404040">ထန်းလျက်</option>
+								<option value="41">ထန်းရည်ချို</option>
+								<option value="42">ထန်းသီး</option>
+								<option value="43434">ထောပတ်</option>
+								<option value="44">ဒန့်သလွန်ရွက်</option>
+								<option value="45">ဒန့်သလွန်သီး</option>
+								<option value="46">ဒိန်ချဉ်</option>
+								<option value="47">ဒူးရင်းသီး </option>
+								<option value="48484">နလင်ကြော်</option>
+								<option value="49">နို့စိမ်း</option>
+								<option value="50505">နို့ရည်</option>
+								<option value="515155">နို့အေးချောင်း</option>
+								<option value="52">နှမ်းမှုန့်ဆုပ်</option>
+								<option value="53">ပတဲကော</option>
+								<option value="54">ပဲကြီး</option>
+								<option value="55">ပဲလင်းမြွေသီး</option>
+								<option value="56">ပဲစိမ်းစားဥ</option>
+								<option value="57">ပိန္နဲသီး</option>
+								<option value="585858585">ပီလောပီနံ</option>
+								<option value="59595959595">ပျားရည်</option>
+								<option value="60">ပုန်းရည်</option>
+								<option value="61">ပြောင်းသား</option>
+								<option value="62">ပိုင်ရီတွန် (Piriton) </option>
+								<option value="636363">ဖရဲသီး</option>
+								<option value="64">ဖားသား</option>
+								<option value="65">ဖွတ်သား</option>
+								<option value="66666">ဖန်ခါးသီး</option>
+								<option value="67">ဗုံလုံသီး</option>
+								<option value="68">ဗျိုင်းသား / ဗျိုင်းအောက်သား</option>
+								<option value="69">ဘူးသီး</option>
+								<option value="70707">ဘာမီတွန်ဆေးပြား</option>
+								<option value="71">မဲနယ်အိုး</option>
+								<option value="72">မဲဇလီဖူးရွက်</option>
+								<option value="73">မန်ကျည်းသီး </option>
+								<option value="74">မင်းကွတ်သီး </option>
+								<option value="75757">မတ်ပဲ</option>
+								<option value="76">မုန်ညှင်းဆီ</option>
+								<option value="77">မုန်လာမြစ်</option>
+								<option value="78787878">မှို</option>
+								<option value="79">မြေပဲဆန်</option>
+								<option value="80">မြေဇာဥ</option>
+								<option value="81">မြွေသား </option>
+								<option value="82">မြန်မာလျက်ဆား </option>
+								<option value="83">မြင်းခွာရွက်</option>
+								<option value="84">ယုန်သား</option>
+								<option value="85">ရှာလကာချဉ်</option>
+								<option value="86">ရိုးနီပီလောပီနံ</option>
+								<option value="87">ရေခဲသုပ်</option>
+								<option value="88">ရေငန်သီး</option>
+								<option value="89"> ရှားစောင်းချဉ်</option>
+								<option value="90">ရှားစောင်း </option>
+								<option value="91919191">ရှောက်သီး</option>
+								<option value="92">လိမ်းဆေးပရုတ်ဆီ</option>
+								<option value="93">ဝက်သားချဉ်</option>
+								<option value="94949494">ဝက်သား</option>
+								<option value="95959">ဝမ်းဘဲဥ</option>
+								<option value="96">ဝါးမျှစ်</option>
+								<option value="97">သမုန်းမြစ်</option>
+								<option value="98">သမုန်းရွက်</option>
+								<option value="99">သကြားပြာ</option>
+								<option value="100">သမင်သား </option>
+								<option value="10110">သပြေသီး</option>
+								<option value="102102">သံပရာသီး</option>
+								<option value="103">သားငါးအဆီ</option>
+								<option value="1041041">သေရည်သေရက်</option>
+								<option value="105">သစ်ကြားသီး</option>
+								<option value="106">သည်းခြေ</option>
+								<option value="107">ဟင်းငန်ရွက်</option>
+								<option value="108">အင်ဥ</option>
+								<option value="109">အမဲသားချဉ်</option>
+								<option value="11011">အရက်</option>
+								<option value="111">အချဉ်မျိုး</option>
+								<option value="112">အုန်းသီး </option>
+								<option value="113">အုန်းရည်</option>
+								<option value="11411">ဥသျှစ်သီး</option>
+								<option value="115">ဩဇာသီး</option>
+								<option value="116">ကြက်ဆူသီး</option>
+								<option value="117">ကျွဲကောသီး</option>
+								<option value="118"></option>
+					
+						      </select>
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="my-4 dark-grey-text font-weight-bold">မတည့်သောအစားအစာ </h5>
+						
+						<div>
+							<span id="resultfood"></span>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Section: Intro -->
+		</div>
+	</main>
+	<!-- Main layout -->
+
+	<!-- Footer -->
+	<footer class="page-footer pt-0 mt-5 rgba-stylish-light">
+		<!-- Copyright -->
+		<div class="footer-copyright py-3 text-center">
+			<div class="container-fluid">Developed By : <a href="#" target="_blank"> TEAM CS </a>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer -->
+
+
+	
+	
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+
+	
+	<script src="js/modernizr.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/underscore.min.js"></script>
+	<script src="js/backbone.js"></script>
+
+
+	<!-- Initializations -->
+	<script>
+		// SideNav Initialization
+		    $(".button-collapse").sideNav();
+		
+		    var container = document.querySelector('.custom-scrollbar');
+		    var ps = new PerfectScrollbar(container, {
+		      wheelSpeed: 2,
+		      wheelPropagation: true,
+		      minScrollbarLength: 20
+		    });
+		
+		    // Data Picker Initialization
+		    //$('.datepicker').pickadate();
+		
+		    // Material Select Initialization
+		    $(document).ready(function () {
+		      
+		      $('.mdb-select').material_select();
+		
+		      $('section').hide();
+		      $("#intro_section").show();
+		      // login section show
+		      // all hide
+		
+		
+		      $('.ui_navigation').click(function(){
+		          var link = $(this).attr('href');
+		          link = link.substring(1);
+		          //alert(link);
+		          $('section').hide();
+		          $("#"+link).show();
+		      });
+		    });
+		
+		    // Tooltips Initialization
+		    $(function () {
+		      $('[data-toggle="tooltip"]').tooltip()
+		    })
+	</script>
+	<!-- Our JavaScript -->
+	<script type="text/javascript" src="js/software_store.js"></script>
+
+	<script>
+		var foodlist = 
+		{
+			"1":"ပုစွန်",
+			"3":" နှမ်းမှုန့် ",
+			"22222":{"1":"အချဉ်အမျိုးမျိုး (သံပုရာသီး)","2":" လက်ဖက်"},
+			"4":"ဝက်သား",
+			"5":" ရေငန်သီး",
+			"6":"နှမ်းဆီ ",
+			"7":" အိုးမဲ ",
+			"8888888":{"1":" ငါးသေတ္တာ(သေ)","2":" ကြက်သား ","3":"ပဲဒလက်(သေ) ","4":"စပါးကြီးမြွေ(သေ) "},
+			"9":" ကြာစွယ်ကြာဥ ",
+			"10":" နို့ရည် ",
+			"11":"အင်ဖူး",
+			"12121":{"1":" မှို","2":"ကြက်သား"},
+			"13":{"1":"ခံသီး","2":" တမာရွက် တမာဖူး "},
+			"14":" သင်္ဘောသီး သင်္ဘောပွင့် (သေ)",
+			"15151":{"1":"စောင်းလျား(သေ)","2":" ပဲမြစ်(သေ)"},
+			"16":"ပဲငါးပိ",
+			"17":"အမဲသား",
+			"1818181":{"1":"ချင်းစိမ်း(သေ)","2":"ခြေလေးချောင်းသား ","3":"မုန်ညင်းဆီ","4":"ဖရုံသီး(သေ)"},
+			"19":"စိမ်းစားဥ",
+			"20":" နို့ရည် ",
+			"212121":{"1":"အာတာလွတ်ဥ ","2":"နို့အေးချောင်း  ","3":"ပီလောပီနံဥ  "},
+			"22":" ကော်ဖီ ",
+			"23":" ခံသီး ",
+			"24":"ပိတ်ချင်းရွက်",
+			"25252":{"1":"မှို ","2":"ထန်းသီး(သေ)"},
+			"26":"ပွေးသား",
+			"27272":{"1":"စောင်းလျား","2":" ခိုသား"},
+			"28":" ကြက်ဆူဆီ",
+			"29":"သီးသီး",
+			"30303":{"1":"ချောကလက်  ","2":"ရေခဲချောင်း "},
+			"31313":{"1":"ခိုသား ","2":"ရှောက်သီး  "},
+			"32":"နနွင်းရည်  ",
+			"33":"ကျွဲသား",
+			"34343":{"1":"ဆူးပန်းရွက် ","2":"နိုရည် "},
+			"35":"ငါးကြီးဆီ ",
+			"36":"သေရက် အမျိုးမျိုး ",
+			"37373":{"1":"နို့ရည် ","2":"ပဲကြီး "},
+			"38":"မန်ကျည်းသီးမှည့်",
+			"39":"မြင်းသား",
+			"404040":{"1":"နလင်ကျော်(သေ)","2":"သပြေသီး","3":"၂၇ ပါးဆေး(သေ)"},
+			"41":"ဝက်သား ",
+			"42":"နို့မျိုး ချဉ် ",
+			"43434":{"1":"ကြေးခွက်  ","2":"ဆီခဲအမျိုးမျိုး "},
+			"44":"နို့ရည်",
+			"45":"ကလောဥ ",
+			"46":"ထန်းသီးမု န့် ",
+			"47":"ရှိန်းခို",
+			"48484":{"1":"ထန်းလျက်  ","2":"အချဉ်  "},
+			"49":"အချဉ်မျိုး ",
+			"50505":{"1":"စောင်းလျားသီး ","2":"ကုလားပဲ "},
+			"515155":{"1":"သခွားသီး ","2":"ဘူးသီး ","3":"ဂွေးသီး(သေ)"},
+			"52":"တလည်းသီး",
+			"53":"သံပုရာသီး ",
+			"54":"မုန် လာ",
+			"55":"လင်းမြွေသား",
+			"56":"ချိုချဉ်အမျိုးမျိုး",
+			"57":"ပျားရည်  ",
+			"585858585":{"1":"ပျားရည်","2":"ပေအူ","3":"ပဲကြားလှော်(သေ) ","4":"မျှစ်ချဉ်(သေ) ","5":"ဒေါင်းသား(သေ) ","6":"အချဉ်အမျိုးမျိူး (သေ)"},
+			"59595959595":{"1":"မိုးရည်","2":"ကင်းပိတ်ရွက် ","3":"ရှားစောင်း ","4":"ပိတ်ချင်းရွက် ","5":"သင်္ကန်းဖွယ် ငှက်သား","6":"ဩဇာသီး(သေ) ","7":"အုန်းသီး(သေ)","8":"ဥသျှစ်သီး(သေ)"},
+			"60":"ဗျိုင်းအောက်သား ",
+			"61":"နို့ရည် ",
+			"62":" အရက် ",
+			"636363":{"1":"နို့မျိုး ","2":"ဘဲဥ ","3":"နို့ အေး "},
+			"64":"မှို",
+			"65":"ကြက်ဆူဆီ ",
+			"66666":{"1":"ပုဒမ္မာကြာရွက်","2":"ပီလောပီနံဥ"},
+			"67":"ပီလောပီနံ",
+			"68":"ဝက်ဆီ",
+			"69":"ကြက်တူရွေးသား (သေ)",
+			"70707":{"1":"ထန်းလျက်ခဲ   ","2":"တစ်ဖီအစိမ်းရောင် ကတ်  "},
+			"71":"သားငါး ",
+			"72":"လက်ဖက်သုပ်  ",
+			"73":"နို့ရည်  ",
+			"74":"သကြား (သေ) ",
+			"75":{"1":"တင်လဲ ","2":"မုန်လာ"},
+			"76":" သင်္ကန်းဖွက်ငှက်  ",
+			"77":" ပျားရည်  ",
+			"78787878":{"1":"ရှားစောင်း","2":"တညင်းသီး (သေ) ","3":"ယုန်သား (သေ) ","4":"ဖားသား (သေ) ","5":"လယ်ကဏန်း (သေ)"},
+			"79":"  ကြက်ဟင်းခါးသီး  ",
+			"80":"  သစ်ကြားသီး (အော့အန်)  ",
+			"81":"  ငါးရံသား  ",
+			"82":"  သွားတိုက်ဆေး   ",
+			"83":"   သခွားသီး   ",
+			"84":"   မှို  (အကြောတက်)   ",
+			"85":"ပီလောပီနံ ",
+			"86":"အချဉ်မျိုး",
+			"87":"ချင်းသုပ်",
+			"88":"လက်ဖက်",
+			"89":"အမဲသား ",
+			"90":"ကုလားဗရာကြော် ",
+			"91919191":{"1":"စောင်းလျားသီး ","2":"ပီလောပီနံ ","3":"ပဲစိမ်းစားဥ ","4":" ခိုသား ","5":" နို့ရည်(သေ)"},
+			"92":"ကရင်နီကောင်ကိုက်သည့်နေရာကို မလိမ်းပါနှင့်",
+			"93":"မဲနယ်အိုး",
+			"94949494":{"1":" ဒိန်ချဉ်  ","2":"နွားနို့","3":"ထန်းရည်ချို (သေ)","4":"ဗျိုင်းသား (သေ)","5":"ကြာရိုးကြာစွယ် (သေ) "},
+			"95959":{"1":" ဖရဲသီး   ","2":"ပေသီးပေရည်    "},
+			"96":"အင်ဥ ",
+			"97":"အချဉ်ချက်သောအိုး(သေ)",
+			"98":"ငါးချက်သောအိုး ",
+			"99":"ပျားရည် ",
+			"100":" ဝါရွက်",
+			"10110":{"1":"ပီလောပီနံ","2":"ထန်းလျက်(သေ)"},
+			"102102":{"1":"ပီလောပီနံ ","2":"နို ့ရည်  ","3":"စိမ်းစားဥ"},
+			"103":"ထောပတ် ",
+			"1041041":{"1":"နှမ်းမှုန့်ဆုပ် ","2":"ပိတ်ချင်းရွက်  ","3":"ဗျိုင်းအောက်သား  ","4":"နို့အမျိုး၂  "},
+			"105":"ဝက်မြေဇာဥ",
+			"106":"သားဟင်းမျိုး ",
+			"107":"နှမ်းဖတ် ",
+			"108":"ပြောင်းဆန် ",
+			"109":"မဲနယ်အိုး",
+			"11011":{"1":" ဘိန်း","2":"ဘာမိတွန်"},
+			"111":"နို့မျိုး",
+			"112":"နို့ရည်",
+			"113":"ပျားရည်",
+			"11411":{"1":" ပျားရည် ","2":"ကင်းပိတ်ရွက်"},
+			"115":"ပျားရည်",
+			"116":"ငှက်သား (သေ)",
+			"117":"သံပုရာသီး(သေ)"
+
+		}
+		function calculate()
+		{
+			var value=$("#selectedfood").val();//alert(value);
+			var no=value.length;//alert(no);
+			if(no<=4)
+			{	
+				var result=foodlist[value];//alert(result);
+				$("#resultfood").text(result);
+			}
+			else if(no==5)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				$("#resultfood").html(result+"<br><br>"+result1);
+			}
+			else if(no==6)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				var result2=foodlist[value][3];
+				$("#resultfood").html(result+"<br><br>"+result1+"<br><br>"+result2);
+			}
+			else if(no==7)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				var result2=foodlist[value][3];
+				var result3=foodlist[value][4];
+				$("#resultfood").html(result+"<br><br>"+result1+"<br><br>"+result2+"<br><br>"+result3);
+			}
+			else if(no==8)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				var result2=foodlist[value][3];
+				var result3=foodlist[value][4];
+				var result4=foodlist[value][5];
+				$("#resultfood").html(result+"<br><br>"+result1+"<br><br>"+result2+"<br><br>"+result3+"<br><br>"+result4);
+			}
+			else if(no==9)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				var result2=foodlist[value][3];
+				var result3=foodlist[value][4];
+				var result4=foodlist[value][5];
+				var result5=foodlist[value][6];
+				$("#resultfood").html(result+"<br><br>"+result1+"<br><br>"+result2+"<br><br>"+result3+"<br><br>"+result4+"<br><br>"+result5);
+			}
+			else if(no==11)
+			{
+				var result=foodlist[value][1];
+				var result1=foodlist[value][2];
+				var result2=foodlist[value][3];
+				var result3=foodlist[value][4];
+				var result4=foodlist[value][5];
+				var result5=foodlist[value][6];
+				var result6=foodlist[value][7];
+				var result7=foodlist[value][8];
+				$("#resultfood").html(result+"<br><br>"+result1+"<br><br>"+result2+"<br><br>"+result3+"<br><br>"+result4+"<br><br>"+result5+"<br><br>"+result6+"<br><br>"+result7);
+			}
+			
+		}	
+		$(document).ready(function(){
+			$("#selectedfood").val(" ");
+		});
+	</script>
+</body>
+</html>

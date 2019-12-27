@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">မစားသင့်</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading_message">လုပ်ဆောင်နေပါသည်...</string>
+    <!-- url -->
+    <string name="url">file:///android_asset/checkfood.html</string>
+    <!-- ads code -->
+    <!-- test banner code ca-app-pub-3940256099942544/6300978111 -->
+    <string name="banner1">ca-app-pub-3940256099942544/6300978111</string>
+    <!-- test  interstitials ca-app-pub-3940256099942544/1033173712 -->
+    <string name="interstitial1">ca-app-pub-3940256099942544/1033173712</string>
+</resources>
